@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="About Me | Salekur Rahaman"
+  description="Learn about Salekur Rahaman, a software engineer, systems architect, and product builder based in Rajshahi, Bangladesh."
+>
+  <section class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Column: Image -->
+      <div class="md:col-span-5 lg:col-span-4 sticky top-24">
+        <div class="rounded-2xl overflow-hidden glass border border-border-dark bg-bg-card/50 aspect-[4/5] relative">
+          <img 
+            src="/assets/images/salekur.jpg" 
+            alt="Salekur Rahaman" 
+            class="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-dark/60 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+        
+        <!-- Quick contact grid under photo -->
+        <div class="mt-6 p-4 rounded-xl border border-border-dark/60 bg-bg-card/20 font-mono text-[11px] tracking-wider text-secondary space-y-2">
+          <div class="flex justify-between">
+            <span class="text-muted">LOCATION:</span>
+            <span>Rajshahi, Bangladesh</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-muted">ROLE:</span>
+            <span>MD & Lead Architect</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-muted">EMAIL:</span>
+            <a href="mailto:salekur9@gmail.com" class="text-accent-teal hover:underline">salekur9@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Narrative -->
+      <div class="md:col-span-7 lg:col-span-8">
+        
+        <!-- Header -->
+        <div class="border-b border-border-dark/30 pb-8 mb-8">
+          <h1 class="text-xs font-mono tracking-widest text-accent-teal uppercase mb-2">INTRODUCING SALEKUR</h1>
+          <h2 class="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gradient mb-4">
+            Systems Architect & Product Builder
+          </h2>
+        </div>
+
+        <!-- Narrative Blocks -->
+        <div class="space-y-6 text-secondary text-sm sm:text-base leading-relaxed">
+          <p class="text-primary text-base sm:text-lg font-medium font-serif italic">
+            "I don't want to only write code. I want to build things that matter."
+          </p>
+          
+          <p>
+            I am a software engineer and solutions architect focused on the intersection of scalable backend engineering, mobile app development, and practical AI systems. As the Managing Director and Lead Solutions Architect at **Lagbe Technology**, I have spent years architecting systems from initial concept to production release.
+          </p>
+          
+          <p>
+            My core strength is **systems thinking**—understanding how user experiences map into database schemas, server resource capacities, queue architectures, and network protocols. I don't build features in isolation; I design them to scale seamlessly as cohesive ecosystems.
+          </p>
+
+          <p>
+            Whether implementing multi-sided marketplace platforms, structuring robust payment splits, deploying vector similarity database searches, or wiring up custom IoT firmware on local networks, I prioritize code cleanliness, minimal dependency usage, and thorough performance optimization.
+          </p>
+        </div>
+
+        <!-- Interests Section -->
+        <div class="mt-12 pt-8 border-t border-border-dark/30">
+          <h3 class="text-sm font-mono tracking-widest text-accent-teal uppercase mb-6">Core Areas of Focus</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-mono text-xs text-secondary">
+            
+            <div class="p-4 rounded-lg border border-border-dark bg-bg-card/10 hover:border-accent-teal/30 transition-colors">
+              <h4 class="text-primary font-bold mb-2 uppercase">Software Engineering</h4>
+              <p class="text-[11px] leading-relaxed">
+                Designing distributed backends, REST APIs, WebSockets, queue architectures, and writing framework-agnostic developer tools.
+              </p>
+            </div>
+            
+            <div class="p-4 rounded-lg border border-border-dark bg-bg-card/10 hover:border-accent-teal/30 transition-colors">
+              <h4 class="text-primary font-bold mb-2 uppercase">Product Building</h4>
+              <p class="text-[11px] leading-relaxed">
+                Guiding product lifecycles, understanding merchant and consumer friction points, and structuring SaaS platforms.
+              </p>
+            </div>
+            
+            <div class="p-4 rounded-lg border border-border-dark bg-bg-card/10 hover:border-accent-teal/30 transition-colors">
+              <h4 class="text-primary font-bold mb-2 uppercase">Semantic Search & AI</h4>
+              <p class="text-[11px] leading-relaxed">
+                Integrating AI vectors (Qdrant), sentence embeddings, and computer vision (OpenCV) filters into standard business workflows.
+              </p>
+            </div>
+            
+            <div class="p-4 rounded-lg border border-border-dark bg-bg-card/10 hover:border-accent-teal/30 transition-colors">
+              <h4 class="text-primary font-bold mb-2 uppercase">IoT & Hardware</h4>
+              <p class="text-[11px] leading-relaxed">
+                Interfacing microcontroller layers (Raspberry Pi, ESP8266) with local network systems (MQTT, local APIs).
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</Layout>

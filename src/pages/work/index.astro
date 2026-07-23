@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+
+// Extract unique categories
+const categories = ["All", ...new Set(projects.map(p => p.data.category))];
+---
+
+<Layout 
+  title="Selected Work | Salekur Rahaman"
+  description="Explore the case studies of projects built by Salekur Rahaman, including marketplace systems, developer tools, vector search databases, and IoT prototypes."
+>
+  <section class="py-20 px-6 max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="border-b border-border-dark/30 pb-12 mb-12">
+      <h1 class="text-xs font-mono tracking-widest text-accent-teal uppercase mb-3">WORK INDEX</h1>
+      <h2 class="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gradient mb-4">
+        Selected Case Studies
+      </h2>
+      <p class="text-secondary max-w-xl leading-relaxed text-sm sm:text-base">
+        A documented chronicle of products, packages, and hardware systems I have architected, developed, and deployed.
+      </p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex flex-wrap gap-3 mb-10 font-mono text-xs tracking-wider">
+      {categories.map((category) => (
+        <button
+          class="filter-btn px-4 py-2 rounded-lg border border-border-dark bg-bg-card/20 text-secondary hover:text-primary hover:border-muted transition-all cursor-pointer"
+          data-filter={category}
+        >
+          {category.toUpperCase()}
+        </button>
+      ))}
+    </div>
+
+    <!-- Project List Rows -->
+    <div id="projects-grid" class="divide-y divide-border-dark/40 border-y border-border-dark/40 flex flex-col">
+      {sortedProjects.map((project) => (
+        <a 
+          href={`/work/${project.id}`} 
+          class="project-card group flex flex-col md:flex-row md:items-center justify-between py-6 hover:px-4 transition-all duration-300 rounded-lg hover:bg-bg-card/30"
+          data-category={project.data.category}
+        >
+          <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 flex-grow">
+            <!-- Year & Category -->
+            <div class="flex md:flex-col gap-2 md:gap-1 text-xs font-mono text-muted w-28 shrink-0">
+              <span>{project.data.year}</span>
+              <span class="md:hidden text-border-dark">•</span>
+              <span class="text-[9px] tracking-widest uppercase text-accent-teal font-semibold">{project.data.category}</span>
+            </div>
+            
+            <!-- Title & Description -->
+            <div class="max-w-2xl">
+              <h4 class="text-lg font-sans font-bold text-primary group-hover:text-accent-teal transition-colors flex items-center gap-2">
+                {project.data.title}
+                <span class="text-xs font-mono font-normal text-secondary uppercase tracking-wider">({project.data.shortTitle})</span>
+              </h4>
+              <p class="text-sm text-secondary leading-relaxed mt-1">
+                {project.data.description}
+              </p>
+            </div>
+          </div>
+
+          <!-- Technologies & Action -->
+          <div class="flex items-center gap-6 mt-4 md:mt-0 justify-between md:justify-end shrink-0">
+            <div class="flex flex-wrap gap-1.5">
+              {project.data.technologies.slice(0, 3).map(tech => (
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-bg-dark/40 border border-border-dark/30 text-secondary">
+                  {tech}
+                </span>
+              ))}
+              {project.data.technologies.length > 3 && (
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-bg-dark/40 text-muted">
+                  +{project.data.technologies.length - 3}
+                </span>
+              )}
+            </div>
+            <span class="text-accent-blue group-hover:text-accent-teal group-hover:translate-x-1 transition-all text-sm hidden md:inline">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Interactive Filtering Script -->
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Set initial active state for "All"
+    filterButtons.forEach(btn => {
+      if (btn.getAttribute('data-filter') === 'All') {
+        btn.classList.remove('text-secondary', 'border-border-dark', 'bg-bg-card/20');
+        btn.classList.add('text-accent-teal', 'border-accent-teal/50', 'bg-accent-teal/5');
+      }
+    });
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        // Toggle active button styling
+        filterButtons.forEach(btn => {
+          btn.classList.remove('text-accent-teal', 'border-accent-teal/50', 'bg-accent-teal/5');
+          btn.classList.add('text-secondary', 'border-border-dark', 'bg-bg-card/20');
+        });
+        button.classList.remove('text-secondary', 'border-border-dark', 'bg-bg-card/20');
+        button.classList.add('text-accent-teal', 'border-accent-teal/50', 'bg-accent-teal/5');
+
+        // Filter cards
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'All' || category === filter) {
+            (card as HTMLElement).style.display = 'flex';
+            card.classList.add('animate-fade-in');
+          } else {
+            (card as HTMLElement).style.display = 'none';
+            card.classList.remove('animate-fade-in');
+          }
+        });
+      });
+    });
+  </script>
+</Layout>

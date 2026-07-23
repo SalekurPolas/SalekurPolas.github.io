@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Contact | Salekur Rahaman"
+  description="Get in touch with Salekur Rahaman, software engineer and product builder, for collaborations, systems development, or technical consulting."
+>
+  <section class="py-20 px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="border-b border-border-dark/30 pb-12 mb-12 text-center md:text-left">
+      <h1 class="text-xs font-mono tracking-widest text-accent-teal uppercase mb-3">GET IN TOUCH</h1>
+      <h2 class="text-3xl sm:text-5xl font-sans font-bold tracking-tight text-gradient mb-4">
+        Let's build something useful
+      </h2>
+      <p class="text-secondary max-w-xl leading-relaxed mx-auto md:mx-0 text-sm sm:text-base">
+        Have an interesting system integration, a custom marketplace ecosystem, or an open-source tool you want to discuss? Reach out below.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+      <!-- Left side: Direct connections -->
+      <div class="md:col-span-5 font-mono text-xs space-y-8">
+        <div>
+          <h3 class="text-muted uppercase tracking-widest text-[10px] mb-3">DIRECT EMAIL</h3>
+          <div class="flex items-center gap-2">
+            <span id="email-address" class="text-primary font-bold text-sm sm:text-base">salekur9@gmail.com</span>
+            <button 
+              id="copy-email-btn"
+              class="px-2.5 py-1 rounded bg-bg-card border border-border-dark hover:border-accent-teal text-secondary hover:text-accent-teal transition-all cursor-pointer text-[10px]"
+            >
+              COPY
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-muted uppercase tracking-widest text-[10px] mb-3">ONLINE PROFILES</h3>
+          <div class="space-y-3 text-secondary">
+            <div class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-bg-card/20 hover:border-accent-teal/30 transition-all">
+              <span class="font-bold">GITHUB</span>
+              <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="text-accent-teal hover:underline">
+                @SalekurPolas ↗
+              </a>
+            </div>
+            <div class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-bg-card/20 hover:border-accent-teal/30 transition-all">
+              <span class="font-bold">LINKEDIN</span>
+              <a href="https://bd.linkedin.com/in/salekurpolas" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline">
+                @salekurpolas ↗
+              </a>
+            </div>
+            <div class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-bg-card/20 hover:border-accent-teal/30 transition-all">
+              <span class="font-bold">X / TWITTER</span>
+              <a href="https://twitter.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+                @SalekurPolas ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Mail Form -->
+      <div class="md:col-span-7">
+        <form 
+          id="contact-form" 
+          action="mailto:salekur9@gmail.com" 
+          method="GET" 
+          class="space-y-6 rounded-2xl glass border border-border-dark/60 p-6 md:p-8 bg-bg-card/10 text-sm"
+        >
+          <div class="space-y-2">
+            <label for="name" class="block font-mono text-xs text-secondary uppercase tracking-widest">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="subject" 
+              placeholder="Your Name" 
+              required
+              class="w-full px-4 py-3 rounded-xl border border-border-dark bg-bg-dark/50 text-primary focus:outline-none focus:border-accent-teal transition-colors"
+            />
+          </div>
+
+          <div class="space-y-2">
+            <label for="message" class="block font-mono text-xs text-secondary uppercase tracking-widest">Message Details</label>
+            <textarea 
+              id="message" 
+              name="body" 
+              rows="6" 
+              placeholder="Hello Salekur, I'd like to discuss..." 
+              required
+              class="w-full px-4 py-3 rounded-xl border border-border-dark bg-bg-dark/50 text-primary focus:outline-none focus:border-accent-teal transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit"
+            class="w-full py-4 rounded-xl bg-gradient-to-r from-accent-teal to-accent-blue text-bg-dark font-mono font-bold tracking-widest text-center hover:opacity-95 transition-opacity cursor-pointer shadow-lg shadow-accent-teal/10"
+          >
+            SEND VIA EMAIL CLIENT
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clipboard Script -->
+  <script>
+    const copyBtn = document.getElementById('copy-email-btn');
+    const emailSpan = document.getElementById('email-address');
+
+    copyBtn?.addEventListener('click', () => {
+      const email = emailSpan?.textContent || 'salekur9@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        if (copyBtn) {
+          copyBtn.textContent = 'COPIED!';
+          copyBtn.classList.remove('text-secondary', 'border-border-dark');
+          copyBtn.classList.add('text-accent-teal', 'border-accent-teal');
+          
+          setTimeout(() => {
+            copyBtn.textContent = 'COPY';
+            copyBtn.classList.remove('text-accent-teal', 'border-accent-teal');
+            copyBtn.classList.add('text-secondary', 'border-border-dark');
+          }, 2000);
+        }
+      });
+    });
+  </script>
+</Layout>

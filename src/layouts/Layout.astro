@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title = "Salekur Rahaman | Software Engineer & Product Builder", 
+  description = "The personal portfolio of Salekur Rahaman, a software engineer and product builder creating software products, developer tools, AI-powered systems, and technology with purpose.",
+  image = "/assets/images/salekur.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Core Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="bg-bg-dark text-primary min-h-screen flex flex-col grid-bg antialiased">
+    
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 w-full glass border-b border-border-dark/60 transition-all duration-300">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        
+        <!-- Logo / Name -->
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-accent-teal to-accent-blue flex items-center justify-center font-mono font-bold text-bg-dark transition-transform group-hover:scale-105">
+            S
+          </div>
+          <span class="font-mono text-sm tracking-widest text-primary group-hover:text-accent-teal transition-colors">
+            SALEKUR.RAHAMAN
+          </span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-8 font-mono text-xs tracking-wider">
+          <a href="/work" class={`transition-colors hover:text-accent-teal ${Astro.url.pathname.startsWith('/work') ? 'text-accent-teal font-semibold' : 'text-secondary'}`}>WORK</a>
+          <a href="/about" class={`transition-colors hover:text-accent-teal ${Astro.url.pathname === '/about' ? 'text-accent-teal font-semibold' : 'text-secondary'}`}>ABOUT</a>
+          <a href="/lab" class={`transition-colors hover:text-accent-teal ${Astro.url.pathname === '/lab' ? 'text-accent-teal font-semibold' : 'text-secondary'}`}>LAB</a>
+          <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="text-secondary transition-colors hover:text-accent-teal flex items-center gap-1">
+            GITHUB ↗
+          </a>
+          <a href="/contact" class={`px-4 py-2 rounded-full border border-accent-teal/30 hover:border-accent-teal/80 text-accent-teal transition-all hover:bg-accent-teal/5 ${Astro.url.pathname === '/contact' ? 'bg-accent-teal/5 border-accent-teal/80' : ''}`}>CONTACT</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden text-secondary hover:text-accent-teal transition-colors focus:outline-none">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden glass border-t border-border-dark/60 py-6 px-6 flex flex-col gap-4 font-mono text-sm tracking-widest">
+        <a href="/work" class={`pb-2 border-b border-border-dark/30 hover:text-accent-teal ${Astro.url.pathname.startsWith('/work') ? 'text-accent-teal' : 'text-secondary'}`}>WORK</a>
+        <a href="/about" class={`pb-2 border-b border-border-dark/30 hover:text-accent-teal ${Astro.url.pathname === '/about' ? 'text-accent-teal' : 'text-secondary'}`}>ABOUT</a>
+        <a href="/lab" class={`pb-2 border-b border-border-dark/30 hover:text-accent-teal ${Astro.url.pathname === '/lab' ? 'text-accent-teal' : 'text-secondary'}`}>LAB</a>
+        <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="pb-2 border-b border-border-dark/30 text-secondary hover:text-accent-teal flex justify-between items-center">
+          <span>GITHUB</span>
+          <span>↗</span>
+        </a>
+        <a href="/contact" class={`px-4 py-3 rounded-xl border border-accent-teal/30 text-accent-teal text-center hover:bg-accent-teal/5 ${Astro.url.pathname === '/contact' ? 'bg-accent-teal/5' : ''}`}>CONTACT</a>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border-dark/60 py-12 px-6 bg-bg-dark font-mono text-xs text-muted">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <p>© {new Date().getFullYear()} Salekur Rahaman. All rights reserved.</p>
+          <p class="mt-1 text-[10px] text-muted/60">Designed with intention. Built for scale.</p>
+        </div>
+        <div class="flex gap-6">
+          <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">GITHUB</a>
+          <a href="https://bd.linkedin.com/in/salekurpolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">LINKEDIN</a>
+          <a href="https://twitter.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">X / TWITTER</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIconPath = document.getElementById('menu-icon-path');
+
+      menuBtn?.addEventListener('click', () => {
+        const isOpen = !mobileMenu?.classList.contains('hidden');
+        if (isOpen) {
+          mobileMenu?.classList.add('hidden');
+          menuIconPath?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        } else {
+          mobileMenu?.classList.remove('hidden');
+          menuIconPath?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout 
+  title={`${project.data.title} | Case Study`}
+  description={project.data.description}
+  image={project.data.heroImage}
+>
+  <article class="py-16 md:py-24 px-6 max-w-4xl mx-auto">
+    <!-- Breadcrumb -->
+    <a href="/work" class="inline-flex items-center gap-2 text-xs font-mono text-accent-blue hover:text-accent-teal transition-colors tracking-widest uppercase mb-8">
+      ← BACK TO WORK
+    </a>
+
+    <!-- Header info -->
+    <header class="mb-12">
+      <div class="flex items-center gap-2 mb-4 font-mono text-xs text-accent-teal">
+        <span>{project.data.category.toUpperCase()}</span>
+        <span>/</span>
+        <span>{project.data.year}</span>
+      </div>
+      
+      <h1 class="text-4xl sm:text-6xl font-sans font-bold tracking-tight text-gradient mb-3">
+        {project.data.title}
+      </h1>
+      
+      <p class="text-lg sm:text-xl font-mono text-secondary uppercase tracking-wider mb-8">
+        {project.data.shortTitle}
+      </p>
+
+      <!-- Project Metadata Card -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 rounded-2xl glass border border-border-dark/60 bg-bg-card/20 font-mono text-xs">
+        <div>
+          <span class="text-muted block mb-1 uppercase tracking-widest text-[10px]">ROLE</span>
+          <span class="text-secondary font-semibold">{project.data.role}</span>
+        </div>
+        <div>
+          <span class="text-muted block mb-1 uppercase tracking-widest text-[10px]">STATUS</span>
+          <span class={`font-semibold ${project.data.status === 'Completed' ? 'text-accent-blue' : 'text-accent-teal'}`}>
+            {project.data.status}
+          </span>
+        </div>
+        <div>
+          <span class="text-muted block mb-1 uppercase tracking-widest text-[10px]">WEBSITE</span>
+          {project.data.website ? (
+            <a href={project.data.website} target="_blank" rel="noopener noreferrer" class="text-accent-teal hover:underline font-semibold">
+              Live Link ↗
+            </a>
+          ) : (
+            <span class="text-muted">None</span>
+          )}
+        </div>
+        <div>
+          <span class="text-muted block mb-1 uppercase tracking-widest text-[10px]">REPOSITORY</span>
+          {project.data.github ? (
+            <a href={project.data.github} target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:underline font-semibold">
+              Source Code ↗
+            </a>
+          ) : (
+            <span class="text-muted">Private</span>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    {project.data.heroImage && (
+      <div class="aspect-video w-full rounded-2xl overflow-hidden glass border border-border-dark/60 bg-bg-dark/80 mb-16">
+        <img 
+          src={project.data.heroImage} 
+          alt={`${project.data.title} Case Study Visual`}
+          class="w-full h-full object-cover opacity-90"
+        />
+      </div>
+    )}
+
+    <!-- Case Study Body Prose -->
+    <div class="prose-content">
+      <Content />
+    </div>
+
+    <!-- Final Footer CTA in Case Study -->
+    <footer class="mt-20 pt-10 border-t border-border-dark/30 flex justify-between items-center font-mono text-xs">
+      <a href="/work" class="text-secondary hover:text-accent-teal transition-colors tracking-widest">
+        ← BACK TO WORK
+      </a>
+      <a href="#top" class="text-secondary hover:text-accent-teal transition-colors tracking-widest">
+        BACK TO TOP ↑
+      </a>
+    </footer>
+  </article>
+</Layout>
+
+<style is:global>
+  /* Custom Scoped Prose styling for Markdown elements */
+  .prose-content h2 {
+    font-size: 1.625rem; /* ~26px */
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+  }
+  .prose-content h2:first-of-type {
+    margin-top: 0;
+  }
+  .prose-content h3 {
+    font-size: 1.25rem; /* ~20px */
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-content p {
+    font-size: 1rem; /* ~16px */
+    line-height: 1.75;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+  }
+  .prose-content ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+    font-size: 0.9375rem;
+  }
+  .prose-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  .prose-content strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .prose-content pre {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-dark);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    margin-bottom: 1.75rem;
+    color: #e2e8f0;
+  }
+  .prose-content code {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background-color: rgba(30, 41, 59, 0.4);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    color: var(--color-accent-teal);
+  }
+  .prose-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+</style>
