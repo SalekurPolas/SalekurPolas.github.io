@@ -13,8 +13,9 @@ technologies:
   - Browser APIs
 heroImage: "/assets/images/v-signature.png"
 github: "https://github.com/SalekurPolas/v-signature"
-role: "Creator & Lead Maintainer"
-order: 3
+website: "https://salekurpolas.github.io/v-signature"
+role: "Creator & Maintainer"
+order: 4
 ---
 
 ## The Problem

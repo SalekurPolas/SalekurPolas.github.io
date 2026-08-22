@@ -15,7 +15,7 @@ technologies:
   - FastAPI
 heroImage: "/assets/images/semantic-search.png"
 role: "Systems Architect"
-order: 4
+order: 6
 ---
 
 ## The Problem

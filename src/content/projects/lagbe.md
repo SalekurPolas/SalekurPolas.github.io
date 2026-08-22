@@ -15,8 +15,8 @@ technologies:
   - WebSockets
   - Flutter
 heroImage: "/assets/images/lagbe.png"
-website: "https://lagbe.dev"
-role: "Founder & Lead Solutions Architect"
+website: "https://lagbe.co"
+role: "Founder"
 order: 1
 ---
 

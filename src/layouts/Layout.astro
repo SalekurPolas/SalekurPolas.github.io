@@ -106,13 +106,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <footer class="border-t border-border-dark/60 py-12 px-6 bg-bg-dark font-mono text-xs text-muted">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <p>© {new Date().getFullYear()} Salekur Rahaman. All rights reserved.</p>
-          <p class="mt-1 text-[10px] text-muted/60">Designed with intention. Built for scale.</p>
+          <p class="text-secondary font-medium">© {new Date().getFullYear()} Salekur Rahaman. All rights reserved.</p>
+          <p class="mt-1 text-xs text-muted">Designed with intention. Built for scale.</p>
         </div>
-        <div class="flex gap-6">
-          <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">GITHUB</a>
-          <a href="https://bd.linkedin.com/in/salekurpolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">LINKEDIN</a>
-          <a href="https://twitter.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="hover:text-accent-teal transition-colors">X / TWITTER</a>
+        <div class="flex gap-6 font-semibold">
+          <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-accent-teal transition-colors">GITHUB</a>
+          <a href="https://bd.linkedin.com/in/salekurpolas" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-accent-teal transition-colors">LINKEDIN</a>
+          <a href="https://twitter.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-accent-teal transition-colors">X / TWITTER</a>
         </div>
       </div>
     </footer>

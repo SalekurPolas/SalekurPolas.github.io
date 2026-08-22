@@ -25,7 +25,7 @@ The website should communicate:
 
 The portfolio should position Salekur primarily as:
 
-> **Product Architect · Systems Engineer · AI Specialist**
+> **Engineer · Product Architect · AI Specialist**
 
 Do not position him merely as a "Laravel Developer". Laravel is one of
 his strongest tools, but his actual experience spans backend

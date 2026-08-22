@@ -14,8 +14,9 @@ technologies:
   - Laravel
   - MQTT
 heroImage: "/assets/images/smart-mirror.png"
-role: "Hardware & Software Engineer"
-order: 5
+website: "https://asmcse.github.io"
+role: "Engineer"
+order: 7
 ---
 
 ## The Problem

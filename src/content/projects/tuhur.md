@@ -3,9 +3,9 @@ title: "Tuhur"
 shortTitle: "Mosque Discovery Platform"
 description: "A localized Flutter and Laravel discovery platform helping users locate nearby mosques and track real-time prayer information."
 category: "Product"
-year: "2023 — 2024"
+year: "2023 — Present"
 featured: true
-status: "Completed"
+status: "In Progress"
 technologies:
   - Flutter
   - Dart
@@ -14,8 +14,8 @@ technologies:
   - Google Maps API
   - Geolocation
 heroImage: "/assets/images/tuhur.png"
-github: "https://github.com/SalekurPolas/tuhur"
-role: "Mobile & Backend Developer"
+website: "https://tuhur.org"
+role: "Developer"
 order: 2
 ---
 

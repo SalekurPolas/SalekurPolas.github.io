@@ -10,8 +10,8 @@
   --color-accent-teal: #10b981; /* Emerald 500 */
   --color-accent-blue: #3b82f6; /* Blue 500 */
   --color-primary: #f8fafc; /* Slate 50 */
-  --color-secondary: #94a3b8; /* Slate 400 */
-  --color-muted: #64748b; /* Slate 500 */
+  --color-secondary: #cbd5e1; /* Slate 300 - crisp, readable body & descriptions */
+  --color-muted: #94a3b8; /* Slate 400 - clean, high-contrast labels & metadata */
 
   --font-sans: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;

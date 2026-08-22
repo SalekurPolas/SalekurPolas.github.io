@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h3 class="text-muted uppercase tracking-widest text-[10px] mb-3">DIRECT EMAIL</h3>
           <div class="flex items-center gap-2">
-            <span id="email-address" class="text-primary font-bold text-sm sm:text-base">salekur9@gmail.com</span>
+            <span id="email-address" class="text-primary font-bold text-sm sm:text-base">salekur@lagbe.dev</span>
             <button 
               id="copy-email-btn"
               class="px-2.5 py-1 rounded bg-bg-card border border-border-dark hover:border-accent-teal text-secondary hover:text-accent-teal transition-all cursor-pointer text-[10px]"
@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="md:col-span-7">
         <form 
           id="contact-form" 
-          action="mailto:salekur9@gmail.com" 
+          action="mailto:salekur@lagbe.dev" 
           method="GET" 
           class="space-y-6 rounded-2xl glass border border-border-dark/60 p-6 md:p-8 bg-bg-card/10 text-sm"
         >
@@ -108,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
     const emailSpan = document.getElementById('email-address');
 
     copyBtn?.addEventListener('click', () => {
-      const email = emailSpan?.textContent || 'salekur9@gmail.com';
+      const email = emailSpan?.textContent || 'salekur@lagbe.dev';
       navigator.clipboard.writeText(email).then(() => {
         if (copyBtn) {
           copyBtn.textContent = 'COPIED!';

@@ -33,7 +33,7 @@ const featuredProjects = allProjects
           </h1>
           
           <p class="text-xs sm:text-sm md:text-base lg:text-lg font-mono text-secondary tracking-normal sm:tracking-wide mb-8 animate-slide-up delay-100 whitespace-nowrap">
-            Product Architect <span class="text-accent-teal">·</span> Systems Engineer <span class="text-accent-teal">·</span> AI Specialist
+            Engineer <span class="text-accent-teal">·</span> Product Architect <span class="text-accent-teal">·</span> AI Specialist
           </p>
           
           <p class="text-base sm:text-lg text-secondary max-w-2xl leading-relaxed mb-10 animate-slide-up delay-200">
@@ -95,7 +95,12 @@ const featuredProjects = allProjects
                 <span class="text-accent-blue">]</span>,
               </div>
               <div class="pl-4">
-                <span class="text-muted">status:</span> <span class="text-accent-teal">"Building Lagbe Marketplace"</span>
+                <span class="text-muted">activeProducts:</span> <span class="text-accent-blue">[</span>
+                <span class="text-accent-teal">"Lagbe"</span>, <span class="text-accent-teal">"Tuhur"</span>, <span class="text-accent-teal">"Bachelor"</span>
+                <span class="text-accent-blue">]</span>,
+              </div>
+              <div class="pl-4">
+                <span class="text-muted">status:</span> <span class="text-accent-teal">"Shipping Products & Scalable Systems"</span>
               </div>
               <div>
                 <span class="text-accent-blue">&#125;;</span>
@@ -108,18 +113,109 @@ const featuredProjects = allProjects
     </div>
   </section>
 
-  <!-- Currently Status Bar -->
-  <section class="border-b border-border-dark/30 py-5 px-6 bg-bg-card/25">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center gap-4 text-xs font-mono tracking-wider text-secondary">
-      <span class="text-accent-teal font-semibold shrink-0 uppercase">CURRENT FOCUS:</span>
-      <div class="flex flex-wrap gap-x-6 gap-y-2.5 items-center">
-        <span>Building <strong class="text-primary font-semibold">Lagbe</strong> (Marketplace Ecosystem)</span>
-        <span class="text-border-dark hidden md:inline">•</span>
-        <span>Improving <strong class="text-primary font-semibold">V-Signature</strong> package</span>
-        <span class="text-border-dark hidden md:inline">•</span>
-        <span>Integrating semantic search in relational DBs</span>
-        <span class="text-border-dark hidden md:inline">•</span>
-        <span>Exploring OpenCV on IoT devices</span>
+  <!-- Currently Status / Live Focus Radar Section -->
+  <section class="border-b border-border-dark/40 py-12 px-6 bg-bg-card/20 relative overflow-hidden">
+    <!-- Subtle background accent glow -->
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-24 bg-accent-teal/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <!-- Section Header with Live Ping -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-teal opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-teal"></span>
+          </span>
+          <h2 class="text-xs font-mono tracking-widest text-accent-teal uppercase font-semibold">
+            CURRENT FOCUS & ACTIVE PRODUCTS
+          </h2>
+        </div>
+        <span class="font-mono text-[10px] text-muted tracking-wider uppercase">
+          LIVE STATUS · 3 PRODUCTS IN ACTIVE DEVELOPMENT
+        </span>
+      </div>
+
+      <!-- 3-Column Interactive Glass Focus Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- Focus Item 1: Lagbe -->
+        <div class="group p-6 rounded-2xl glass-card border border-border-dark/70 bg-bg-card/40 hover:border-accent-teal/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-teal/5 rounded-full blur-2xl group-hover:bg-accent-teal/15 transition-all"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-accent-teal/10 text-accent-teal border border-accent-teal/20 font-medium">
+                MARKETPLACE ECOSYSTEM
+              </span>
+              <span class="text-[10px] font-mono text-muted group-hover:text-accent-teal transition-colors">
+                BUILDING
+              </span>
+            </div>
+            <h3 class="text-base font-sans font-bold text-primary group-hover:text-accent-teal transition-colors mb-2 flex items-center gap-2">
+              Lagbe Platform
+              <span class="text-xs text-muted font-mono font-normal group-hover:translate-x-0.5 transition-transform">→</span>
+            </h3>
+            <p class="text-xs text-secondary leading-relaxed">
+              Architecting multi-sided booking & dispatch flows, payment escrow cycles, Redis queue workers, and native Flutter apps.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-border-dark/40 flex items-center justify-between text-[11px] font-mono text-muted">
+            <span>Laravel · Flutter · Redis</span>
+            <a href="/work/lagbe" class="text-accent-teal hover:underline text-[10px] tracking-wider uppercase font-semibold">Case Study ↗</a>
+          </div>
+        </div>
+
+        <!-- Focus Item 2: Tuhur -->
+        <div class="group p-6 rounded-2xl glass-card-blue glass-card border border-border-dark/70 bg-bg-card/40 hover:border-accent-blue/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-blue/5 rounded-full blur-2xl group-hover:bg-accent-blue/15 transition-all"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-accent-blue/10 text-accent-blue border border-accent-blue/20 font-medium">
+                DISCOVERY PLATFORM
+              </span>
+              <span class="text-[10px] font-mono text-muted group-hover:text-accent-blue transition-colors">
+                IN PROGRESS
+              </span>
+            </div>
+            <h3 class="text-base font-sans font-bold text-primary group-hover:text-accent-blue transition-colors mb-2 flex items-center gap-2">
+              Tuhur
+              <span class="text-xs text-muted font-mono font-normal group-hover:translate-x-0.5 transition-transform">→</span>
+            </h3>
+            <p class="text-xs text-secondary leading-relaxed">
+              Developing localized Flutter & Laravel mobile discovery architecture for spatial mosque mapping, geohashes, and offline prayer schedules.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-border-dark/40 flex items-center justify-between text-[11px] font-mono text-muted">
+            <span>Flutter · Dart · Laravel</span>
+            <a href="/work/tuhur" class="text-accent-blue hover:underline text-[10px] tracking-wider uppercase font-semibold">Case Study ↗</a>
+          </div>
+        </div>
+
+        <!-- Focus Item 3: Bachelor -->
+        <div class="group p-6 rounded-2xl glass-card border border-border-dark/70 bg-bg-card/40 hover:border-accent-teal/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-teal/5 rounded-full blur-2xl group-hover:bg-accent-teal/15 transition-all"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-bg-dark/80 text-secondary border border-border-dark/60 font-medium">
+                SHARED LIVING APP
+              </span>
+              <span class="text-[10px] font-mono text-muted group-hover:text-accent-teal transition-colors">
+                IN PROGRESS
+              </span>
+            </div>
+            <h3 class="text-base font-sans font-bold text-primary group-hover:text-accent-teal transition-colors mb-2 flex items-center gap-2">
+              Bachelor
+              <span class="text-xs text-muted font-mono font-normal group-hover:translate-x-0.5 transition-transform">→</span>
+            </h3>
+            <p class="text-xs text-secondary leading-relaxed">
+              Building an Android app simplifying bachelor life with shared meal ledgers, roommate expense splitting, and Google Classroom task sync.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-border-dark/40 flex items-center justify-between text-[11px] font-mono text-muted">
+            <span>Android · Java · Firebase</span>
+            <a href="/work/bachelor" class="text-accent-teal hover:underline text-[10px] tracking-wider uppercase font-semibold">Case Study ↗</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -162,14 +258,14 @@ const featuredProjects = allProjects
 
           <!-- Technologies & Action -->
           <div class="flex items-center gap-6 mt-4 md:mt-0 justify-between md:justify-end shrink-0">
-            <div class="flex flex-wrap gap-1.5">
+            <div class="flex flex-wrap gap-2">
               {project.data.technologies.slice(0, 3).map(tech => (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-bg-dark/40 border border-border-dark/30 text-secondary">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bg-card/80 border border-border-dark/60 text-secondary font-medium">
                   {tech}
                 </span>
               ))}
               {project.data.technologies.length > 3 && (
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-bg-dark/40 text-muted">
+                <span class="text-[11px] font-mono px-2 py-1 rounded-md bg-bg-card/40 border border-border-dark/40 text-muted">
                   +{project.data.technologies.length - 3}
                 </span>
               )}
@@ -311,8 +407,8 @@ const featuredProjects = allProjects
         <a href="/contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-bg-dark font-bold hover:bg-secondary transition-colors">
           GET IN TOUCH
         </a>
-        <a href="mailto:salekur9@gmail.com" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-border-dark hover:border-muted text-secondary hover:text-primary transition-all">
-          salekur9@gmail.com
+        <a href="mailto:salekur@lagbe.dev" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-border-dark hover:border-muted text-secondary hover:text-primary transition-all">
+          salekur@lagbe.dev
         </a>
       </div>
     </div>
