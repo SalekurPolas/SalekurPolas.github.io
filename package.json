@@ -1,5 +1,5 @@
 {
-  "name": "growing-graham",
+  "name": "salekurpolas.github.io",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist -b deploy"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.1",
     "tailwindcss": "^4.3.3"

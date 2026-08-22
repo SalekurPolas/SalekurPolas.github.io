@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 — Page Not Found | Salekur Rahaman"
+  description="The page you are looking for does not exist or has been moved."
+>
+  <section class="min-h-[70vh] flex items-center justify-center py-20 px-6 max-w-4xl mx-auto text-center">
+    <div class="space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-xs font-mono tracking-widest uppercase mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping"></span>
+        404 ERROR · PAGE NOT FOUND
+      </div>
+
+      <h1 class="text-6xl sm:text-8xl font-sans font-extrabold tracking-tight text-gradient">
+        404
+      </h1>
+
+      <p class="text-secondary max-w-md mx-auto text-sm sm:text-base leading-relaxed font-mono">
+        The requested endpoint or path was not found on this server. It might have been relocated, renamed, or deleted.
+      </p>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 font-mono text-xs tracking-wider">
+        <a 
+          href="/" 
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-accent-teal to-accent-blue text-bg-dark font-bold hover:opacity-90 transition-opacity"
+        >
+          RETURN HOME
+        </a>
+        <a 
+          href="/work" 
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-border-dark bg-bg-card/40 text-secondary hover:text-primary hover:border-secondary transition-all"
+        >
+          EXPLORE WORK →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
