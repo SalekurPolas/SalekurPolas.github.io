@@ -1190,7 +1190,7 @@ What I'm building and exploring currently.
 
 [ CTA ]
 
-Let's build something useful.
+Let's build together.
 
 GitHub
 Contact

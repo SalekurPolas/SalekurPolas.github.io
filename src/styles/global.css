@@ -106,12 +106,18 @@ body {
   background: linear-gradient(135deg, #f8fafc 40%, #94a3b8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .text-gradient-accent {
   background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* Fade in delays */
