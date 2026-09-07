@@ -15,8 +15,8 @@ const featuredProjects = allProjects
     <div class="absolute inset-0 grid-bg opacity-40 pointer-events-none"></div>
     
     <!-- Glowing background lights for depth -->
-    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-accent-teal/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
+    <div class="absolute top-1/4 left-1/4 w-100 h-100 bg-accent-teal/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-87.5 h-87.5 bg-accent-blue/5 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -43,7 +43,7 @@ const featuredProjects = allProjects
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-up delay-300">
-            <a href="/work" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-accent-teal to-accent-blue text-bg-dark font-mono font-bold text-sm tracking-widest text-center hover:opacity-95 transition-opacity shadow-lg shadow-accent-teal/15">
+            <a href="/work" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-linear-to-r from-accent-teal to-accent-blue text-bg-dark font-mono font-bold text-sm tracking-widest text-center hover:opacity-95 transition-opacity shadow-lg shadow-accent-teal/15">
               EXPLORE MY WORK
             </a>
             <a href="https://github.com/SalekurPolas" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-border-dark hover:border-secondary text-secondary hover:text-primary font-mono text-sm tracking-widest text-center transition-all bg-bg-card/40">
@@ -236,7 +236,7 @@ const featuredProjects = allProjects
     <div class="divide-y divide-border-dark/40 border-y border-border-dark/40">
       {featuredProjects.map((project, index) => (
         <a href={`/work/${project.id}`} class="group flex flex-col md:flex-row md:items-center justify-between py-6 hover:px-4 transition-all duration-300 rounded-lg hover:bg-bg-card/30">
-          <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 flex-grow">
+          <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 grow">
             <!-- Year & Category -->
             <div class="flex md:flex-col gap-2 md:gap-1 text-xs font-mono text-muted w-28 shrink-0">
               <span>{project.data.year}</span>
