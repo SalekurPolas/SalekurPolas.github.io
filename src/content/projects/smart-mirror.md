@@ -13,7 +13,6 @@ technologies:
   - OpenCV
   - Laravel
   - MQTT
-heroImage: "/assets/images/smart-mirror.png"
 website: "https://asmcse.github.io"
 role: "Engineer"
 order: 7
