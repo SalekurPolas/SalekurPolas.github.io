@@ -9,7 +9,7 @@ How every image in this portfolio is chosen, made, checked and credited. The rul
 These are Islamic and social organisations.
 
 - **No women in images.** If a woman must appear, she wears full hijab with niqab: only her eyes are visible.
-- **Men are modestly dressed:** panjabi, tupi, jubba, pyjama, shirt, full trousers, apron, suit and tie. No shorts, no bare chest.
+- **Men are modestly dressed:** panjabi, tupi, jubba, pyjama, shirt, full trousers, apron, suit and tie. No shorts, no bare chest. The one exception is Tuhur's ghusl step pictures (`water-head`, `water-body`): ghusl is washing the whole body, so they show a man in a towel from chest to below the knees, his awrah covered (owner decision, 2026-11-22).
 - **No cartoons, sketches, wireframes, placeholders, or obvious demo or stock filler** where a real image is expected.
 
 ### B. Real over fake
