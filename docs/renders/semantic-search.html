@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- The Semantic Search case study picture (public/assets/images/semantic-search.png, docs/images.md): open in Chrome at 1600 x 900, capture as PNG. Drawn from the case study's own text. -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;width:1600px;height:900px;overflow:hidden}
+body{background:radial-gradient(90% 80% at 50% 0%,#0b1a2e 0%,#020617 70%);font-family:Outfit,Inter,sans-serif;color:#f8fafc;position:relative}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#1e293b55 1px,transparent 1px),linear-gradient(90deg,#1e293b55 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(70% 70% at 50% 45%,#000 30%,transparent 100%)}
+h1{position:absolute;left:90px;top:62px;margin:0;font-size:40px;font-weight:600;letter-spacing:-.5px}
+.sub{position:absolute;left:90px;top:116px;font-size:21px;color:#94a3b8}
+.lane{position:absolute;left:90px;right:90px;height:250px}
+.l1{top:215px}.l2{top:530px}
+.tag{font-family:'Fira Code',monospace;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+.l1 .tag{color:#3b82f6}.l2 .tag{color:#10b981}
+.row{display:flex;align-items:center}
+.box{background:#0b0f19;border:1px solid #1e293b;border-radius:18px;padding:22px 24px;width:186px;min-height:84px;box-shadow:0 10px 30px #0006}
+.box b{display:block;font-size:22px;font-weight:600;margin-bottom:8px}
+.box span{display:block;font-size:16px;color:#cbd5e1;line-height:1.4}
+.l1 .box.hl{border-color:#3b82f6aa}.l2 .box.hl{border-color:#10b981aa}
+.arrow{flex:1;height:2px;position:relative;margin:0 10px}
+.l1 .arrow{background:linear-gradient(90deg,#3b82f633,#3b82f6)}.l2 .arrow{background:linear-gradient(90deg,#10b98133,#10b981)}
+.arrow:after{content:'';position:absolute;right:-2px;top:-6px;border:7px solid transparent;border-left:11px solid}
+.l1 .arrow:after{border-left-color:#3b82f6}.l2 .arrow:after{border-left-color:#10b981}
+.note{margin-top:20px;font-family:'Fira Code',monospace;font-size:16px;color:#94a3b8}
+.note em{font-style:normal;color:#cbd5e1}
+.div{position:absolute;left:90px;right:90px;top:480px;height:1px;background:linear-gradient(90deg,transparent,#1e293b,transparent)}
+</style></head><body><div class="grid"></div>
+<h1>Semantic search, by meaning</h1>
+<div class="sub">"automobile mechanics" finds "car repair shop": text and queries become vectors, matched by cosine similarity</div>
+<div class="lane l1"><div class="tag">Keeping the index in sync</div>
+<div class="row">
+<div class="box"><b>Laravel app</b><span>a record changes in MySQL</span></div><div class="arrow"></div>
+<div class="box"><b>Model observer</b><span>queues a sync job</span></div><div class="arrow"></div>
+<div class="box"><b>Redis queue</b><span>background worker, batched with asyncio</span></div><div class="arrow"></div>
+<div class="box hl"><b>FastAPI service</b><span>text → 1536-dimension embedding</span></div><div class="arrow"></div>
+<div class="box hl"><b>Qdrant</b><span>stores the vector with the record's id</span></div>
+</div></div>
+<div class="div"></div>
+<div class="lane l2"><div class="tag">Answering a search</div>
+<div class="row">
+<div class="box"><b>Search query</b><span>words as the user types them</span></div><div class="arrow"></div>
+<div class="box hl"><b>FastAPI service</b><span>the same model embeds the query</span></div><div class="arrow"></div>
+<div class="box hl"><b>Qdrant</b><span>nearest neighbours by cosine similarity</span></div><div class="arrow"></div>
+<div class="box"><b>Laravel app</b><span>loads the top matches and shows them</span></div>
+</div>
+<div class="note">Laravel · Python · FastAPI · Redis · Qdrant · <em>OpenAI embeddings or a local sentence-transformer</em></div></div>
+</body></html>
